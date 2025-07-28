@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非遗簪花文化传承</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f9f3e9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #8d6e63;
+        }
+        
+        /* 导航栏 */
+        header {
+            background-color: #d7ccc8;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #5d4037;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #5d4037;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8d6e63;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #5d4037;
+        }
+        
+        /* 内容区域 */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #5d4037;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #8d6e63;
+            margin: 1rem auto;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* 历史时间线 */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #8d6e63;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: #f9f3e9;
+            border: 4px solid #8d6e63;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #8d6e63;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #8d6e63;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #8d6e63;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #8d6e63 transparent transparent;
+        }
+        
+        .right::after {
+            left: -16px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 工艺展示 */
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .craft-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .craft-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .craft-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .craft-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .craft-item:hover .craft-image img {
+            transform: scale(1.1);
+        }
+        
+        .craft-text {
+            padding: 1.5rem;
+        }
+        
+        .craft-text h3 {
+            margin-bottom: 1rem;
+            color: #5d4037;
+        }
+        
+        /* 图片展示 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* 联系表单 */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #5d4037;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #d7ccc8;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #5d4037;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #d7ccc8;
+        }
+        
+        .copyright {
+            border-top: 1px solid #8d6e63;
+            padding-top: 1.5rem;
+        }
+        
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid #8d6e63;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #8d6e63 transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">非遗簪花</div>
+                <ul class="nav-links">
+                    <li><a href="#about">簪花简介</a></li>
+                    <li><a href="#history">历史沿革</a></li>
+                    <li><a href="#craft">制作工艺</a></li>
+                    <li><a href="#gallery">作品展示</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>传承千年的簪花艺术</h1>
+            <p>感受非遗文化的独特魅力</p>
+            <a href="#about" class="btn">了解更多</a>
+        </div>
+    </section>
+
+    <!-- 簪花简介 -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">簪花简介</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>簪花，又称头花、发饰花，是中国传统女性头饰的重要组成部分，已有数千年的历史。簪花不仅是一种装饰品，更是中国传统文化和审美情趣的载体。</p>
+                    <p>非遗簪花工艺融合了雕刻、编织、刺绣等多种传统技艺，每一朵簪花都凝聚着手工艺人的心血与智慧。不同地区的簪花各具特色，反映了当地的风土人情和文化特色。</p>
+                    <p>簪花曾是古代女子妆扮的必备之物，从宫廷贵族到民间百姓，簪花都扮演着重要角色。如今，簪花作为非物质文化遗产，正以其独特的艺术魅力重新焕发光彩。</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/1.jpg" alt="传统簪花">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 历史沿革 -->
+    <section id="history" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">历史沿革</h2>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>先秦时期</h3>
+                        <p>簪花的雏形出现，最初以简单的骨簪、木簪为主，装饰较为朴素。</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>汉唐时期</h3>
+                        <p>簪花工艺得到发展，金银材质开始流行，出现了更加精美的花形簪饰。</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>宋元时期</h3>
+                        <p>簪花工艺达到鼎盛，种类繁多，工艺精湛，成为女性身份地位的象征。</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>明清时期</h3>
+                        <p>簪花工艺更加精细，地域特色明显，形成了多种流派和风格。</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>近现代</h3>
+                        <p>随着发式的改变，簪花逐渐退出日常生活，成为收藏品和艺术品。</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>当代</h3>
+                        <p>簪花被列入非物质文化遗产，传统工艺得到保护和传承，焕发新生。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 制作工艺 -->
+    <section id="craft" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">制作工艺</h2>
+            <div class="craft-grid">
+                <div class="craft-item">
+                    <div class="craft-image">
+                        <img src="img/2.jpg" alt="选材">
+                    </div>
+                    <div class="craft-text">
+                        <h3>选材</h3>
+                        <p>传统簪花多选用金银、玉石、珍珠、丝绸等贵重材料，现代也使用合金、树脂等新材料。</p>
+                    </div>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-image">
+                        <img src="img/3.jpg" alt="设计">
+                    </div>
+                    <div class="craft-text">
+                        <h3>设计</h3>
+                        <p>根据佩戴场合和个人喜好设计花型，常见的有牡丹、梅花、菊花等传统花卉图案。</p>
+                    </div>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-image">
+                        <img src="img/4.jpg" alt="制作">
+                    </div>
+                    <div class="craft-text">
+                        <h3>制作</h3>
+                        <p>运用雕刻、錾刻、镶嵌、点翠等多种工艺，将设计转化为精美的实物。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展示 -->
+    <section id="gallery" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">作品展示</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="img/5.jpg" alt="金丝牡丹簪">
+                    <div class="gallery-caption">金丝牡丹簪</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/6.jpg" alt="银鎏金梅花簪">
+                    <div class="gallery-caption">银鎏金梅花簪</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/7.jpg" alt="点翠蝴蝶簪">
+                    <div class="gallery-caption">点翠蝴蝶簪</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="珍珠流苏步摇">
+                    <div class="gallery-caption">珍珠流苏步摇</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="玉雕兰花簪">
+                    <div class="gallery-caption">玉雕兰花簪</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="珐琅彩凤簪">
+                    <div class="gallery-caption">珐琅彩凤簪</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">主题</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">留言</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">提交</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>致力于非遗簪花文化的保护、传承与创新，让传统工艺焕发新生。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#about">簪花简介</a></li>
+                        <li><a href="#history">历史沿革</a></li>
+                        <li><a href="#craft">制作工艺</a></li>
+                        <li><a href="#gallery">作品展示</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+                    <p>邮箱: info@zanhua.com</p>
+                    <p>电话: 123-456-7890</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 非遗簪花文化传承. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome 图标库 -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
